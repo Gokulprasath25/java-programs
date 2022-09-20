@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 public class FindVowels 
 {
  public static void main(String [] args)
@@ -7,6 +9,7 @@ public class FindVowels
 	 System.out.println("Enter Name");
 	 String S = sc.next();
 	 check(S);
+	 indexPosition(S);
 	 sc.close();
  }
  static void check(String S)
@@ -79,5 +82,14 @@ public class FindVowels
 	      System.out.println(u+" -U");
 		  }
 		}
+ }
+ static void indexPosition(String S)
+ {
+    Pattern p = Pattern.compile("[aeiouAEIOU]");
+    Matcher m = p.matcher(S);
+    while(m.find())
+    {
+    	System.out.println(m.group()+" is at index of "+m.start());
+    }
  }
 }
